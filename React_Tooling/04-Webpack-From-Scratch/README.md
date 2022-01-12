@@ -198,7 +198,7 @@ We have four HTTP requests served by the Webpack Dev Server:
 1. The first one serves `/` with the `index.html` file.
 2. The second one is the `main.js` file compiled by Webpack. Open [its source](http://localhost:8080/main.js)! There's a lot in here, if you scroll at the very bottom, you will find **your code**. The reason why there is so much is that by default, `webpack-dev-server` serves a **development** bundle, with debugging information.
 3. The third one is `/sockjs-node/info`, a request to ask the Webpack Dev Server about configuration. Is the HMR (Hot Module Replacement) enabled?
-4. Yes it is! A websocket (fourth request) is opened and maintained with the server. Put your Sublime Text and Chrome side by side. You can change the code in Sublime, Save, and **without reloading**, the Chrome tab will be updated.
+4. Yes it is! A websocket (fourth request) is opened and maintained with the server. Put your VS code Text and Chrome side by side. You can change the code in VS code, Save, and **without reloading**, the Chrome tab will be updated.
 
 Try this: remove existing code from `src/index.js` and replace it with:
 

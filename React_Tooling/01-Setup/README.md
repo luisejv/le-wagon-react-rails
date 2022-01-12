@@ -45,7 +45,7 @@ You should already have [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), 
 cat ~/.zshrc
 ```
 
-You can also open this file in Sublime Text to inspect it.
+You can also open this file in VS code Text to inspect it.
 
 ### Node
 
@@ -135,7 +135,7 @@ You should have something like this:
 The two first lines are interesting.
 
 1. `./bin` is useful when you work on a Ruby project using Bundler. [Binstubs](http://bundler.io/v1.10/bundle_binstubs.html) are files that live in the local `bin` folder of your project and can be executed from the command line. We used to prefix all our commands (`rails`, `rake`, etc.) with `bundle exec`. Thanks to binstubs, we can create a little file we can call with `./bin/rails` or `./bin/rake`. Having `./bin` in the `$PATH` means that we can simply type `rails` or `rake` to run this file. Very transparent!
-2. `./node_modules/.bin` is something you might not have. Open your `~/.zshrc` file with Sublime Text and update the `export PATH` line. [This is what you should have](https://github.com/lewagon/dotfiles/blob/master/zshrc#L58). Having `./node_modules/.bin` in the `$PATH` means that we'll be able to run executables from the NPM packages we download on a project. That will be useful for ESLint and Webpack. Instead of running `./node_modules/.bin/eslint` we can just type `eslint`! Again, very transparent :)
+2. `./node_modules/.bin` is something you might not have. Open your `~/.zshrc` file with VS code Text and update the `export PATH` line. [This is what you should have](https://github.com/lewagon/dotfiles/blob/master/zshrc#L58). Having `./node_modules/.bin` in the `$PATH` means that we'll be able to run executables from the NPM packages we download on a project. That will be useful for ESLint and Webpack. Instead of running `./node_modules/.bin/eslint` we can just type `eslint`! Again, very transparent :)
 
 Once you've updated your `~/.zshrc`, save it, close all your terminals and restart. Run the following again:
 
