@@ -1,6 +1,7 @@
 
-## Arrancamos instalando las dependencias
-### `npm install`
+## Arrancamos creando la app con create-react-app y llamandola todo
+
+### `npx create-react-app todo`
 
 ## Ahora arrancamos el servidor
 
@@ -11,7 +12,39 @@ abrimos [http://localhost:3000](http://localhost:3000) para verlo en el browser
 ## Una vez iniciado el servidor:
 Vamos a poder renderizar los cambios
 
-Creamos una carpeta nueva llamada  `componentes` y en su interior, **Generamos 3 componentes distintos** llamados 
+Antes que nada, eliminamos todos los archivos que esten en la carpeta `src`, excepto `index.js` y `app.js`. 
+Ingresamos en **index** y lo dejamos asi:
+
+ ``` javascript
+ //index.jsx
+import ReactDOM from 'react-dom';
+import App from './App';
+
+
+ReactDOM.render(
+    <App />,
+  document.getElementById('root')
+);
+
+```
+y en **App** para dejarlo asi:
+
+ ``` javascript
+ //App.jsx
+function App() {
+
+  return (
+    <div>
+    </div>
+)
+}
+ 
+export default App;
+```
+
+Dentro de la carpeta `src` creamos una carpeta nueva llamada  `componentes` y en su interior
+
+ **Generamos 3 componentes distintos** llamados 
 
  `Todo.jsx` donde almacenaremos cada una de las tarea a realizar, por **individual** ,
  `TodoForm.jsx` donde generaremos el formulario respectivo para crear una tarea nueva ,
