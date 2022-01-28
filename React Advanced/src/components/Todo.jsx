@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function Todo({ todo, todoDelete}) {
-
-    console.log(todo)
     return (
         <div>
             <h1>

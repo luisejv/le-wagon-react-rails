@@ -1,14 +1,19 @@
-import React , {useState} from 'react'
+import React , {useContext, useState} from 'react'
+import { StoreContext } from '../store/StoreProvider';
+import { types } from '../store/storeReducer';
 
 const initialFormValue = {
     title: "",
     description: "",
   };
 
-export default function TodoForm({todoAdd}) {
+export default function TodoForm() {
+    
+    const [ store, dispatch ] = useContext(StoreContext)
     
     const [ formValue, setFormValue ] = useState(initialFormValue)
     const { title, description } = formValue;
+    
 
     const handleInputChange = (e) => {
         const changedFormValues = {
@@ -21,13 +26,25 @@ export default function TodoForm({todoAdd}) {
 
       const handleSubmit = (e) => {
           e.preventDefault();
-          todoAdd(formValue);
+
+          const newTodo = {
+            id: Date.now(),
+            ...formValue,
+            completed: false,
+          };
+
+          dispatch({ 
+            type: types.todoAdd, 
+            payload : newTodo
+        })
           setFormValue(initialFormValue);
       };
+      
+      console.log(" soy store", store)
 
     return (
         <div>
-           TODO FORM
+            soy un Form
             <form onSubmit={handleSubmit}>
             <input 
         type="text"
@@ -43,6 +60,7 @@ export default function TodoForm({todoAdd}) {
         > </textarea>
             <button > agregar </button>
             </form>
+            <div> soy la</div>
         </div>
     )
 }
