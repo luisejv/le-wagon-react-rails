@@ -5,14 +5,14 @@ import TodoForm from "./components/TodoForm";
 const initialTodos = [
   {
     id: 1,
-    title: "todo #1",
-    description: "desc del todo1",
+    title: "Terminar el homework",
+    description: "Debo completar la homework de hoy",
     completed: false,
   },
   {
     id: 2,
-    title: "todo #2",
-    description: "desc del todo2",
+    title: "Repasar useState y useEffect",
+    description: "Son los hooks mas utilizados, conviene practicarlos haciendo ejercicios",
     completed: true,
   },
 ];

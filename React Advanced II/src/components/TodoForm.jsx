@@ -1,4 +1,4 @@
-import React , {useContext, useState} from 'react'
+import React , { useContext, useState } from 'react'
 import { StoreContext } from '../store/StoreProvider';
 import { types } from '../store/storeReducer';
 
@@ -9,7 +9,7 @@ const initialFormValue = {
 
 export default function TodoForm() {
     
-    const [ store, dispatch ] = useContext(StoreContext)
+    const [ store, dispatch ] = useContext(StoreContext) 
     
     const [ formValue, setFormValue ] = useState(initialFormValue)
     const { title, description } = formValue;
@@ -39,12 +39,10 @@ export default function TodoForm() {
         })
           setFormValue(initialFormValue);
       };
-      
-      console.log(" soy store", store)
 
     return (
         <div>
-            soy un Form
+         TODO FORM
             <form onSubmit={handleSubmit}>
             <input 
         type="text"
@@ -60,7 +58,6 @@ export default function TodoForm() {
         > </textarea>
             <button > agregar </button>
             </form>
-            <div> soy la</div>
         </div>
     )
 }
