@@ -1,11 +1,11 @@
 import React from "react";
 import Searchbar from "./Searchbar";
 
-const Header = () => {
+const Header = ({ query, setQuery }) => {
   return (
     <header className="navbar-wagon">
       <div>Header</div>
-      <Searchbar></Searchbar>
+      <Searchbar query={query} setQuery={setQuery}></Searchbar>
     </header>
   );
 };

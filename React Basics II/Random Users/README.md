@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+### App Random Persons
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ahora debemos completar el ejercicio que realizamos en la sesión anterior haciendo uso de las peticiones de datos.
 
-## Available Scripts
+![App Random Persons](public/random_users.png)
 
-In the project directory, you can run:
+### 1. Setup
 
-### `npm start`
+Para este challenge debes realizar una copia de la aplicación App Random Persons.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Guía
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La información que necesitas para mostrar las cartas de las personas ahora la obtendrás directamente de `https://randomuser.me/` (puedes leer la documentación [aquí](https://randomuser.me/documentation)) haciendo uso del hook `useEffect` y debes almacenarla usando el hook `useState`.
 
-### `npm test`
+La idea es tener un código parecido al siguiente:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+const [personas, setPersonas] = useState([]);
 
-### `npm run build`
+useEffect(() => {
+    fetch('https://randomuser.me/api/?results=6')
+        .then(response => response.json())
+        .then((response) => {
+            setPersonas(response.data.results);
+        })
+}, [])
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pero recuerda que `fetch` hace llamadas asíncronas, así que debes usar `async/await` para esperar a este pedido de datos.
+Además, ahora es necesario que la barra de búsqueda del Navbar funcione de manera que al escribir un nombre o apellido se filtren solo los resultados pertinentes. Para esto deberás hacer uso de `useState`, `useEffect` y `props` para comunicar a los diferentes componentes con la lógica necesaria para cumplir este objetivo.
+PD: Recuerda que la petición inicial de datos no debe cambiar, solo debes filtrar las personas que se recibieron en un primer momento.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Solución
 
-### `npm run eject`
+No hagas trampa! Trata de hacer lo máximo posible **por ti mismo** antes de ver el repositorio de la solución.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<details><summary>View solution</summary><p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👉 Aquí el [repositorio de la solución](...).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</p></details>

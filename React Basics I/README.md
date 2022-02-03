@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+¡No hay tests para esta challenge, crearemos una App!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### App Random Persons
 
-## Available Scripts
+El objetivo es lograr construir una aplicación modularizada a través de componentes que representen secciones importantes.
 
-In the project directory, you can run:
+![App Random Persons](public/random_users.png)
 
-### `npm start`
+### 1. Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para este challenge deben crear una aplicación base con la ayuda de:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npx create-react-app nombre-proyecto-aqui`
 
-### `npm test`
+Luego, dentro de la carpeta `src/` crear la carpeta `components/`. Dentro de esta última debemos colocar todos los componentes que iremos creando a lo largo del ejercicio.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para poder visualizar lo que vamos creando y los cambios en tiempo real debemos lanzar un servidor con la ayuda de `npm start`.
 
-### `npm run build`
+### 2. Guía
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La información que necesitan para llenar las cartas de personas la pueden crear ustedes mismos con información ficticia en un archivo `.json` que tenga una estructura similar a la siguiente:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+[
+    {
+        "id": {
+            "name": "TFN",
+            "value": "385472524"
+        },
+        "gender": "female",
+        "name": {
+            "first": "Vivan",
+            "last": "Lee"
+        },
+        "location": {
+            "city": "Cairns",
+            "state": "New South Wales",
+            "country": "Australia",
+        },
+        "email": "vivan.lee@example.com",
+        "dob": {
+            "age": 25
+        },
+        "phone": "03-6494-9952",
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/73.jpg",
+        },
+    },
+    {...}
+]
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Esta información fue extraída de `https://randomuser.me/`
 
-### `npm run eject`
+El proyecto debe modularizar cada sección importante en componentes. Por ejemplo, debe existir un componente `Card.jsx` que sirva para renderizar varias personas (que no se repita, sino que se reutilize) o un componente `Header.jsx` que contenga todas las etiquetas y estilos que se pueden visualizar en el Navbar de la aplicación.
+PD: La barra de búsqueda del navbar no tiene por qué funcionar.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Solución
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+No hagas trampa! Trata de hacer lo máximo posible **por ti mismo** antes de ver el repositorio de la solución.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<details><summary>View solution</summary><p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👉 Aquí el [repositorio de la solución](...).
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</p></details>

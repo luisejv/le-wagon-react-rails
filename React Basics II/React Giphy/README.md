@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+¡No hay tests para esta challenge, crearemos una App!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Giphy Search App
 
-## Available Scripts
+El objetivo de este challenge es recrear la aplicación de búsqueda de Giphs `Giphy Search App`.
 
-In the project directory, you can run:
+![Homer thinking](https://raw.githubusercontent.com/lewagon/react-redux-images/master/react/homer_thinking.png)
 
-### `npm start`
+#### 1. Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para este challenge, comenzaremos desde una [plantilla](https://github.com/lewagon/react-boilerplate):
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+cd ~/code/<github_username>
 
-### `npm test`
+# Clona la plantilla en un nuevo proyecto `react-gifs` (o cualquier otro nombre)
+git clone git@github.com:lewagon/react-boilerplate.git react-gifs
+cd react-gifs
+yarn install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Borra la historia de Git del repositorio clonado e inicia una nueva
+rm -rf .git
+git init
+git add .
+git commit -m "Start new project from lewagon/react-boilerplate"
 
-### `npm run build`
+# Crea un reposito de GitHub, y haz push!
+hub create
+git push origin master
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Hora de abrir tu editor y codear!.
+code .
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Lanza el servidor con el comando `npm start` y éste abrirá una página en el puerto `http://localhost:3000`!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 2. Features
 
-### `npm run eject`
+1. Cuando el usuario escribe una búsqueda, la lista de Gifs debe mostrar los primeros 10 resultados que la `Giphy API` retorna.
+1. Cuando el usuario da click a un gif de la lista, debe aparecer en la zona principal de la izquierda.
+1. (Opcional) Cuando el usuario hace focus o quita el focus del input, busca una buena manera de cambiar el UI de la parte izquierda (opacity, background-color, border...) para mostrarle al usuario que está fuera del input!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### 3. Guía
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Primero, identifica los componentes que necesitas en tu App.
+- Luego, piensa qué data compartirán y qué diseño tendrán sus `props` / `state`.
+- Por último, agrega eventos y callbacks.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 4. Estilos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+No queremos que pierdas mucho tiempo en CSS el día de hoy, así que puedes obtener los estilos de [este gist](https://gist.github.com/ssaunier/dbf2b76987ec62258d7ad51f0162a0ed)
 
-## Learn More
+### Solución
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+No hagas trampa! Trata de hacer lo máximo posible **por ti mismo** antes de ver el repositorio de la solución.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<details><summary>View solution</summary><p>
 
-### Code Splitting
+👉 Here's [a live example](https://lewagon.github.io/react-giphy/) of the [solution repository](https://github.com/lewagon/react-giphy).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</p></details>
