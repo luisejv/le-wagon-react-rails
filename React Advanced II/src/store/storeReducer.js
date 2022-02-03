@@ -6,22 +6,24 @@ const types = {
 
 
 const initialStore = {
-    todos: [ {
-        id: 1,
-        title: "todo #1",
-        description: "desc del todo1",
-        completed: false,
-      },
-      {
-        id: 2,
-        title: "todo #2",
-        description: "desc del todo2",
-        completed: true,
-      }, ]
+    todos: [
+        {
+          id: 1,
+          title: "Terminar el homework",
+          description: "Debo completar la homework de hoy",
+          completed: false,
+        },
+        {
+          id: 2,
+          title: "Repasar useState y useEffect",
+          description: "Son los hooks mas utilizados, conviene practicarlos haciendo ejercicios",
+          completed: false,
+        },
+      ]
 }
 
 
-const storeReducer = ( state, action )=> {
+const storeReducer = ( state, action ) => {
     switch(action.type) {
         case types.todoReset: 
         return {

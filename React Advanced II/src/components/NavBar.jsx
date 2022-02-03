@@ -9,10 +9,7 @@ export default function NavBar() {
                     <Link to="/about">About</Link>
                 </li>
                 <li>
-                    <Link to="/list">Todo List</Link>
-                </li>
-                <li>
-                    <NavLink exact="true" to="/" >Home</NavLink>
+                    <NavLink to="/list">Todo List</NavLink>
                 </li>
             </ul>
             <h1>NavBar</h1>

@@ -1,0 +1,16 @@
+.botton {
+    background-color:rgb(255, 136, 0);
+    height:100px; 
+    width:360px;
+    border-radius: 20px;
+    font-size:xx-large;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgb(63, 62, 56), 0 0 20px rgb(73, 47, 18);
+    padding: 1vh;
+}
+
+.buttonLanding:hover{
+    box-shadow: 0 0 20px rgb(177, 72, 11);
+    padding:5px;
+    font-size: 5vh;
+}
