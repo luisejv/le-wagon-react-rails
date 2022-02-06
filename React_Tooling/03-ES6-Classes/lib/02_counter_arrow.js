@@ -1,11 +1,16 @@
-class Counter {
-  constructor(text) {
-    // TODO: build an internal Map of word => occurrences.
-  }
+const termsMap = new Map();
 
-  occurrences(word) {
-    // TODO: return the number of occurrences
+export default setTerms = (text) => {
+  if (text && text.length > 0) {
+    text.split(" ").forEach((term) => {
+      const key = term.toLowerCase();
+      const value = termsMap.get(key) ? termsMap.get(key) + 1 : 1;
+      termsMap.set(key, value);
+    });
   }
 }
 
-module.exports = Counter;
+export default getOcurrences = (word) => {
+  return termsMap.get(word.toLowerCase()) || 0;
+}
+
