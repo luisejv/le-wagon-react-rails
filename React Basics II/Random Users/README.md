@@ -2,7 +2,7 @@
 
 Ahora debemos completar el ejercicio que realizamos en la sesión anterior haciendo uso de las peticiones de datos.
 
-![App Random Persons](public/random_users.png)
+![App Random Persons](./public/random_users.png)
 
 ### 1. Setup
 
