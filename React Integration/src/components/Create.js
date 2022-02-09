@@ -28,8 +28,6 @@ export default function Create({ create, setCreate, refresh }) {
 
         const body = { name, address }
 
-        console.log(body)
-
         var requestOptions = {
             method: 'POST',
             redirect: 'follow',
