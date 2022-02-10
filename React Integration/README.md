@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# React Integration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Integraremos una API de Rails con nuestro frontend en React.
+## Installation
 
-## Available Scripts
+Creamos un proyecto vacío de React con:
 
-In the project directory, you can run:
+```bash
+npx create-react-app my-app
+```
 
-### `npm start`
+## Fetch
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Usaremos la API Fetch de Javascript para hacer todos nuestros request a la API de Rails. El método Fetch lleva como parámetros la URL a dónde queremos hacer la solicitud, y los requestOptions, que son una serie de atributos que permitirán saber a la API qué devolvernos.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La estructura de la API Fetch es:
+```javascript
+fetch(url, requestOptions)
+.then(function() {
 
-### `npm test`
+})
+.catch(function() {
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+});
+```
 
-### `npm run build`
+Donde, aparte de url y requestOptions, vemos dos palabras nuevas. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dentro de .then indicaremos quê hacer con la respuesta de nuestra API, como por ejemplo, setData(response).
+Dentro de .catch indicaremos quê hacer en caso de que la respuesta por parte de la API sea un error, por ejemplo, setError(true).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tipo de query: requestOptions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+El requestOptions, en el caso del GET tendrá la siguiente forma:
 
-### `npm run eject`
+```javascript
+var requestOptions = {
+     method: 'GET',
+     redirect: 'follow'
+};
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+De igual forma, para un POST:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+method: 'POST',
+redirect: 'follow',
+headers: {
+     "Content-Type": "application/json",
+     'X-User-Email': <<your_user_email>>,
+     'X-User-Token': <<your_user_token>>
+},
+body: JSON.stringify(body)
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Siendo body, nuestra variable con todos los datos que queremos enviar, y tanto X-User-Email y X-User-Token los datos de la sesión que estamos utilizando. Estos datos es altamente recomendable colocarlos en un archivo de entorno, aunque en el común de los casos, serán proporcionados por algún reducer, que tendrá la información de la sesión que ha sido iniciada.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Con la misma estructura podemos armar un PATCH:
 
-## Learn More
+```javascript
+method: 'PATCH',
+redirect: 'follow',
+headers: {
+     "Content-Type": "application/json",
+     'X-User-Email': <<your_user_email>>,
+     'X-User-Token': <<your_user_token>>
+},
+body: JSON.stringify(body)
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Y finalmente, DELETE:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+method: 'PATCH',
+redirect: 'follow',
+headers: {
+     "Content-Type": "application/json",
+     'X-User-Email': <<your_user_email>>,
+     'X-User-Token': <<your_user_token>>
+}
+```
 
-### Code Splitting
+## Ejercicio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Teniendo todos estos datos en cuenta, se propone la consigna de generar una app de React.js, que utilice la [API de Restaurants](https://github.com/luisejv/le-wagon-react-rails/tree/main/React%20Integration%20API), que sea capaz de crear, mostrar, actualizar y eliminar (Create, Read, Update, Delete) restaurants de nuestra API. Siempre utilizando la estructura de Fetch en todos los casos.
 
-### Analyzing the Bundle Size
+Los restaurants se deberán mostrar en una tabla, con nombre y dirección. Para mostrar y editar puede utilizarse un modal, o una página aparte.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Los endpoints a utilizar son:
 
-### Making a Progressive Web App
+Para mostrar todos los restaurants:
+```bash
+GET /api/v1/restaurants  # unauthenticated
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Para mostrar solo un restaurant, pasando como parámetro su id (obtenido claro, de la query anterior):
+```bash
+GET /api/v1/restaurants/:id # unauthenticated
+```
 
-### Advanced Configuration
+Para crear un nuevo restaurant en la lista:
+```bash
+POST /api/v1/restaurants # authenticated
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Para actualizar un restaurant, pasando como parámetro su id y en el body los datos a actualizar (para este caso, name y address):
 
-### Deployment
+```bash
+PATCH /api/v1/restaurants/:id # authenticated
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Finalmente, para eliminar un restaurant:
 
-### `npm run build` fails to minify
+```bash
+DELETE /api/v1/restaurants/:id # authenticated
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Puntos extra
+Es muy importante, a la hora de hacer requests, adelantarnos a los posibles errores. La consigna extra es, como se explica en la clase, aplicar un manejo de errores a la hora de crear un nuevo restaurant. Deberá mostrarse un mensaje de error al usuario (alert, etc.) y una breve descripción del error que sucedió.
