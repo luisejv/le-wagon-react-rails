@@ -59,13 +59,3 @@ Las consideraciones generales son:
 ### 3. Opcional
 
 Si te sobró el tiempo, puedes intentar creando un usuario administrador que pueda crear y eliminar productos nuevos en la aplicación. Además de la interfaz y formularios necesarios para lograrlo, este usuario deberá poder revisar los ingresos totales y mensuales por compras generadas a lo largo del tiempo.
-
-### Solución
-
-No hagas trampa! Trata de hacer lo máximo posible **por ti mismo** antes de ver el repositorio de la solución.
-
-<details><summary>View solution</summary><p>
-
-👉 Aquí el [repositorio de la solución](...).
-
-</p></details>
